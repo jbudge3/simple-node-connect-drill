@@ -2,12 +2,16 @@ var chats = [];
 module.exports = {
 
   getChats:function(req,res){
-    // TODO write getChats
+    res.json(chats);
   },
   postChats:function(req,res){
-    // TODO write postChats
+    if (req.body.message) {
+      chats.push(req.body)
+    };
+    res.status(200).json('Chat added successfully to Chats array');
   },
   deleteChats:function(req,res){
-    // TODO write deleteChats
+    chats = [];
+    res.status(200).json('Chats were deleted entirely');
   }
-}
+};
